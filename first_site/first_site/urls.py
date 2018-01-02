@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from firstapp.views import IndexPage
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', IndexPage.as_view(), name='index'),
 ]
