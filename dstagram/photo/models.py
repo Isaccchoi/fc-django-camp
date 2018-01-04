@@ -13,4 +13,4 @@ class Photo(models.Model):
         ordering = ('-updated', )
 
     def __str__(self):
-        return self.author.name + "-" + self.updated.strftime("%Y-%m-%d-%H-%M")
+        return self.author.username + "-" + self.updated.strftime("%Y-%m-%d %H:%M:%S")
