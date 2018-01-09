@@ -13,23 +13,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
             integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
             crossorigin="anonymous"></script>
+    <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
     <title>Dstagram {% block title %}{% endblock %}</title>
 
 </head>
 <body>
 <div class="container">
-    <div class="header clearfix">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="#">Welcome, {{ user.get_username }}</a></li>
-            </ul>
-        </nav>
-        <h3 class="text-muted">Dstagram</h3>
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="header clearfix">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <ul class="nav float-right">
+                    <li class="nav-item"><a href="/" class="active">Home</a></li>
+                    <li class="nav-item"><a href="#">Welcome, {{ user.get_username }}</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Dstagram</h3>
+        </div>
+        {% block content %}
+        {% endblock %}
     </div>
+    <footer class="footer">
+        <p>&copy; Fastcampus</p>
+    </footer>
 </div>
-{% block content %}
-{% endblock %}
+
+
+
 
 </body>
 </html>
