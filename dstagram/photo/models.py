@@ -6,6 +6,7 @@ from django.db import models
 class Photo(models.Model):
     author = models.ForeignKey(User, related_name='photo_posts')
     text = models.TextField()
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True, default='NoImage.jpg')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
