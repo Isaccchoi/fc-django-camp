@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Registration Done
+{% endblock %}
+
+{% block content %}
+    <div class="alert alert-info">
+        <h3>Welcome {{ new_user.username }}</h3>
+        <a href="/" class="btn btn-info">Move to main</a>
+    </div>
+{% endblock %}
