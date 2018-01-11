@@ -5,7 +5,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('photo.urls', namespace='photo')),
+    # url(r'^$', include('photo.urls', namespace='photo')),
+    url(r'^photo/', include('photo.urls', namespace='photo')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 ]
 

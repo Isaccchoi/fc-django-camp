@@ -11,7 +11,7 @@
                 <button type="button" class="btn btn-xs btn-info">{{ post.author.username }}</button>
                 <p>{{ post.text|linebreaksbr }}</p>
                 <p class="text-right">
-                    <a href="#" class="btn btn-xs btn-success">댓글달기</a>
+                    <a href="{% url 'photo:post_detail' post.pk %}" class="btn btn-xs btn-success">댓글달기</a>
                 </p>
             </div>
             <div class="col-md-2"></div>
