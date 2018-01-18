@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
+{% block title %}Product Detail{% endblock %}
+
 {% block content %}
-    Detail
+    <div class="product_detail">
+        <img src="{{ product.image.url }}" alt="">
+        <h1>{{ product.name }}</h1>
+        <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
+        <p class="price">{{ product.price }}</p>
+        <!-- 카트 추가 폼 입력 부분 -->
+        {{ product.description|linebreaksbr }}
+    </div>
 {% endblock %}
