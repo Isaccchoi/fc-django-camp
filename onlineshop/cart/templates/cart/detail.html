@@ -6,33 +6,35 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Your shopping cart</h1>
-    <table class="cart">
+    <div class="alert alert-info" role="alert">
+      Cart
+    </div>
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-                <th>Unit price</th>                
-                <th>Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Remove</th>
+                <th scope="col">Unit price</th>
+                <th scope="col">Price</th>
             </tr>
         </thead>
         <tbody>
         {% for item in cart %}
             {% with product=item.product %}
             <tr>
-                <td>
+                <th scope="row">
                     <a href="{{ product.get_absolute_url }}">
-                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                        <img src="{{ product.image.url }}">
                     </a>
-                </td>
+                </th>
                 <td>{{ product.name }}</td>
                 <td>
                     <form action="{% url "cart:cart_add" product.id %}" method="post">
                         {{ item.update_quantity_form.quantity }}
                         {{ item.update_quantity_form.update }}
-                        <input type="submit" value="Update">
+                        <input type="submit" class="btn btn-primary" value="Update">
                         {% csrf_token %}
                     </form>
                 </td>
@@ -50,6 +52,7 @@
         </tbody>
     </table>
     <p class="text-right">
-        <a href="{% url "shop:product_list" %}" class="button light">Continue shopping</a>
+        <a href="{% url "shop:product_list" %}" class="btn btn-secondary">Continue shopping</a>
+        <a href="#" class="btn btn-primary">Checkout</a>
     </p>
 {% endblock %}
