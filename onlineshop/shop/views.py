@@ -20,3 +20,4 @@ def product_list(request, category_slug=None):
         products = products.filter(category=category)
 
     return render(request, 'shop/product/list.html',{'category':category, 'categories':categories,'products':products})
+

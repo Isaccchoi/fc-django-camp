@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
+import json
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -145,3 +145,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 CART_SESSION_ID = 'cart_id'
 
 SITE_ID = 1
+
+CONFIG_SECRET_FILE = os.path.join(BASE_DIR, '.config_secret.json')
+
+config_secret = json.loads(open(CONFIG_SECRET_FILE).read())
+
+IAMPORT_KEY = config_secret['iamport']['key']
+IAMPORT_SECRET = config_secret['iamport']['secret']
