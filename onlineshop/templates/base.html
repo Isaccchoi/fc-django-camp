@@ -24,15 +24,13 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
         <li class="nav-item active">
-            <a href="{% url 'cart:cart_detail' %}" class="nav-lin btn btn-outline-success">
-                Cart
-                {% if cart|length > 0 %}
-                    ${{ cart.get_total_price }} with {{ cart|length }} items
-                {% else %}
-                    : Your cart is empty
-                {% endif %}
-            </a>
-        <a class="nav-link btn btn-outline-success" href="#">Cart <span class="sr-only">(current)</span></a>
+        <a class="nav-link btn btn-outline-success" href="{% url 'cart:cart_detail' %}">Cart
+            {% if cart|length > 0 %}
+                ${{ cart.get_total_price }} with {{cart|length}} items
+            {% else %}
+                : Your cart is empty
+            {% endif %}
+        </a>
       </li>
 
     </ul>
